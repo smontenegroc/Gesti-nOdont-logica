@@ -8,7 +8,7 @@ Class Conexion {
     private $citaId;
 
     public function abrir(){
-        $this->mySQLI = new mysqli("localhost","root","","citas");
+        $this->mySQLI = new mysqli("bpmaf9d7cghjnkbunw9l-mysql.services.clever-cloud.com","u8rwaurs8hfz3umb","bjCfQvZ8w6Btlnjsfjzo","bpmaf9d7cghjnkbunw9l");
         if(mysqli_connect_error()){
             return 0;
         }
