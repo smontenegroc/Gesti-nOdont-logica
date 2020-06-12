@@ -18,50 +18,50 @@ $controlador = new Controlador();
         
         <?php
             if(isset($_GET["accion"])){
-                if($_GET["accion"] == "asignar"){
-                    $controlador->cargarAsignar();
-                }
-                elseif($_GET["accion"] == "consultar"){
-                    $controlador->verPagina('Vista/html/consultar.php');
-                }
-                elseif($_GET["accion"] == "cancelar"){
-                    $controlador->verPagina('Vista/html/cancelar.php');
-                }
-                elseif($_GET["accion"] == "guardarCita"){
-                    $controlador->agregarCita($_POST["asignarDocumento"],
-                    $_POST["medico"],
-                    $_POST["fecha"],
-                    $_POST["hora"],
-                    $_POST["consultorio"]);
-                }
-                elseif($_GET["accion"] == "consultarCita"){
-                    $controlador->consultarCitas($_GET["consultarDocumento"]);
-                }
-                elseif($_GET["accion"] == 'cancelarCita'){
-                    $controlador->cancelarCitas($_GET["cancelarDocumento"]);
-                }
-                elseif($_GET["accion"] == 'consultarPaciente'){
-                    //echo __FILE__ . "  " . __LINE__ . "<br/>"; exit();
-                    $controlador->consultarPaciente($_GET["documento"]);
-                }
-                elseif($_GET["accion"] == 'ingresarPaciente'){
-                    
-                    $controlador->agregarPaciente(
-                            $_GET["PacDocumento"],
-                            $_GET["PacNombres"],
-                            $_GET["PacApellidos"],
-                            $_GET["PacNacimiento"],
-                            $_GET["PacSexo"]
-                            );
-                }
-                elseif($_GET["accion"] === "consultarHora"){
-                    $controlador->consultarHorasDisponibles($_GET["medico"],$_GET["fecha"]);
-                }
-                elseif($_GET["accion"] === "verCita"){
-                    $controlador->verCita($_GET["numero"]);
-                }
-                elseif($_GET["accion"] === "confirmarCancelar"){
-                    $controlador->confirmarCancelarCita($_GET["numero"]);
+                switch ($_GET["accion"]){
+                    case "asignar":
+                        $controlador->cargarAsignar();
+                    break;
+                    case "consultar":
+                        $controlador->verPagina('Vista/html/consultar.php');
+                    break;
+                    case "cancelar":
+                        $controlador->verPagina('Vista/html/cancelar.php');
+                    break;
+                    case "gauardarCita":
+                        $controlador->agregarCita($_POST["asignarDocumento"],
+                        $_POST["medico"],
+                        $_POST["fecha"],
+                        $_POST["hora"],        
+                        $_POST["consultorio"]);      
+                    break;
+                    case "consultarCita":
+                        $controlador->consultarCitas($_GET["consultarDocumento"]);
+                    break;
+                    case "cancelarCita":
+                        $controlador->cancelarCitas($_GET["cancelarDocumento"]);
+                    break;
+                    case "consultarPaciente":
+                        $controlador->consultarPaciente($_GET["documento"]);
+                    break;
+                    case "ingresarPaciente":
+                        $controlador->agregarPaciente(
+                        $_GET["PacDocumento"],
+                        $_GET["PacNombres"],      
+                        $_GET["PacApellidos"],        
+                        $_GET["PacNacimiento"],        
+                        $_GET["PacSexo"]        
+                        );
+                    break;
+                    case "consultarHora":
+                        $controlador->consultarHorasDisponibles($_GET["medico"],$_GET["fecha"]);
+                    break;
+                    case "verCita":
+                        $controlador->verCita($_GET["numero"]);
+                    break;
+                    case "confirmarCancelar":
+                        $controlador->confirmarCancelarCita($_GET["numero"]);
+                    break;
                 }
             } 
                    
