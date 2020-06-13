@@ -18,7 +18,7 @@ $controlador = new Controlador();
         
         <?php
             if(isset($_GET["accion"])){
-                switch ($_GET["accion"]){
+                switch($_GET["accion"]){
                     case "asignar":
                         $controlador->cargarAsignar();
                     break;
@@ -62,9 +62,11 @@ $controlador = new Controlador();
                     case "confirmarCancelar":
                         $controlador->confirmarCancelarCita($_GET["numero"]);
                     break;
+                    default:
+                        $controlador->verPagina('Vista/html/inicio.php');
+                    break;
                 }
-            } 
-                   
+            }
             else{
                 $controlador->verPagina('Vista/html/inicio.php');
             }

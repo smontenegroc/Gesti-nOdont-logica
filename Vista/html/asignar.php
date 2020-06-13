@@ -102,7 +102,7 @@
                     </tr>
                     <tr>
                         <td>Fecha de Nacimiento</td>
-                        <td><input type="text" name="PacNacimiento" id="PacNacimiento"></td>
+                        <td><input type="text" name="PacNacimiento" id="PacNacimiento" placeholder="   aaaa/mm/dd"></td>
                     </tr>
                     <tr>
                         <td>Sexo</td>                        

@@ -22,7 +22,7 @@ class GestorCita {
         $conexion = new Conexion();
         $conexion->abrir();
         $sql = "SELECT pacientes.* , medicos.*, consultorios.*, citas.*"
-                . "FROM Pacientes as pacientes, Medicos as medicos, Consultorios as consultorios ,citas "
+                . "FROM pacientes as pacientes, medicos as medicos, consultorios as consultorios ,citas "
                 . "WHERE citas.CitPaciente = pacientes.PacIdentificacion "
                 . "AND citas.CitMedico = medicos.MedIdentificacion "
                 . "AND citas.CitNumero = $id";
@@ -46,7 +46,7 @@ class GestorCita {
     public function consultaPaciente($doc){
         $conexion = new Conexion();
         $conexion->abrir();
-        $sql = "select * from Pacientes where PacIdentificacion = '$doc'";
+        $sql = "select * from pacientes where PacIdentificacion = '$doc'";
         $conexion->consulta($sql);
         $result = $conexion->obtenerResult();
         $conexion->cerrar();
@@ -61,7 +61,7 @@ class GestorCita {
         $fechaNacimiento = $paciente->obtenerFechaNacimiento();
         $sexo = $paciente->obtenerSexo();
 
-        $sql = "insert into Pacientes values ('$identificaion','$nombres','$apellidos','$fechaNacimiento','$sexo')";
+        $sql = "insert into pacientes values ('$identificaion','$nombres','$apellidos','$fechaNacimiento','$sexo')";
         $conexion->consulta($sql);
         $filasAfectadas = $conexion->obtenerFilasAfectadas();
         $conexion->cerrar();
@@ -70,7 +70,7 @@ class GestorCita {
     public function consultarMedicos(){
         $conexion = new Conexion();
         $conexion->abrir();
-        $sql = "select * from Medicos";
+        $sql = "select * from medicos";
         $conexion->consulta($sql);
         $result = $conexion->obtenerResult();
         $conexion->cerrar();
