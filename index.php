@@ -28,7 +28,7 @@ $controlador = new Controlador();
                     case "cancelar":
                         $controlador->verPagina('Vista/html/cancelar.php');
                     break;
-                    case "gauardarCita":
+                    case "guardarCita":
                         $controlador->agregarCita($_POST["asignarDocumento"],
                         $_POST["medico"],
                         $_POST["fecha"],

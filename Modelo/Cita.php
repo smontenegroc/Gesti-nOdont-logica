@@ -8,9 +8,9 @@ class Cita {
     private $medico;
     private $consultorio;
     private $estado;
-    private $observaciones;
+    //private $observaciones;
 
-    public function __construct($num,$fec,$hor,$pac,$med,$con,$est,$obs){
+    public function __construct($num,$fec,$hor,$pac,$med,$con,$est){
         $this->numero = $num;
         $this->fecha = $fec;
         $this->hora = $hor;
@@ -18,7 +18,7 @@ class Cita {
         $this->medico = $med;
         $this->consultorio = $con;
         $this->estado = $est;
-        $this->observaciones = $obs;
+        //$this->observaciones = $obs;
     }
 
     public function obtenerNumero(){
@@ -42,7 +42,7 @@ class Cita {
     public function obtenerEstado(){
         return $this->estado;
     }
-    public function obtenerObservaciones(){
-        return $this->observaciones;
-    }
+//    public function obtenerObservaciones(){
+//        return $this->observaciones;
+//    }
 }
